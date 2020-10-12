@@ -20,7 +20,7 @@ export class AppComponent {
     redirectUri: window.location.origin + "/heroes",
     clientId: 'spa-heroes',
     //dummyClientSecret: '2ea5dc66-8e1c-4e7c-aac0-52a42594a6ac',
-    scope: 'openid profile email offline_access heroes',
+    scope: 'openid profile email offline_access',
     responseType: 'code',
     requireHttps: false,
     // at_hash is not present in JWT token
@@ -28,15 +28,15 @@ export class AppComponent {
     //postLogoutRedirectUri: window.location.origin + "/heroes",
     showDebugInformation: true
   }
-  
+
   public login() {
     this.oauthService.initLoginFlow();
   }
-  
+
   public logoff() {
     this.oauthService.logOut();
   }
-  
+
   private configure() {
     this.oauthService.configure(this.authConfig);
     this.oauthService.tokenValidationHandler = new NullValidationHandler();
